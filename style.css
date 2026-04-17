@@ -671,6 +671,30 @@ a:hover { color: var(--primary-dark); }
     font-weight: 600;
 }
 
+.platform-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 14px;
+}
+
+.platform-links a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 7px 12px;
+    border-radius: 999px;
+    background: var(--primary-light);
+    color: var(--primary-dark);
+    font-size: .84rem;
+    font-weight: 600;
+}
+
+.platform-links a:hover {
+    background: var(--primary);
+    color: #fff;
+}
+
 /* ============================== */
 /* 表格 */
 /* ============================== */
