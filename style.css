@@ -139,8 +139,55 @@ a:hover { color: var(--primary-dark); }
     color: var(--text);
 }
 
+.lang-switch {
+    display: inline-flex;
+    align-items: center;
+    padding: 2px;
+    border-radius: 999px;
+    background: rgba(0,0,0,.04);
+    margin-right: 2px;
+}
+
+.lang-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 46px;
+    height: 32px;
+    padding: 0 12px;
+    border-radius: 999px;
+    font-size: .82rem;
+    font-weight: 600;
+    letter-spacing: .01em;
+    color: var(--text-light);
+}
+
+.lang-link:hover {
+    color: var(--text);
+}
+
+.lang-link.active {
+    background: #ffffff;
+    color: var(--text);
+    box-shadow: 0 1px 3px rgba(0,0,0,.06);
+}
+
+[data-theme="dark"] .lang-switch {
+    background: rgba(255,255,255,.08);
+}
+
+[data-theme="dark"] .lang-link.active {
+    background: #2a2a2d;
+    color: var(--text);
+    box-shadow: none;
+}
+
 @media (max-width: 720px) {
     .nav-quick { display: none; }
+    .lang-link {
+        min-width: 40px;
+        padding: 0 10px;
+    }
 }
 
 .nav-toggle {

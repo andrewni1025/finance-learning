@@ -6,11 +6,21 @@ const navBackdrop = document.getElementById('navBackdrop');
 const navClose = document.getElementById('navClose');
 const backToTop = document.getElementById('backToTop');
 const progressBar = document.getElementById('progressBar');
+const isEnglishPage = document.documentElement.lang.toLowerCase().startsWith('en');
+const searchHintText = isEnglishPage
+    ? 'Search the site for terms, concepts, platforms, and topics...'
+    : '输入关键词搜索全站内容，如 "做空"、"ETF"、"黄金"...';
+const searchEmptyText = isEnglishPage
+    ? 'Type a keyword to search the site...'
+    : '输入关键词搜索全站内容...';
+const searchNoResultText = isEnglishPage
+    ? 'No matching content found. Try another keyword.'
+    : '没有找到相关内容，试试其他关键词';
 
 function setNavState(isOpen) {
-    navMenu.classList.toggle('active', isOpen);
-    navBackdrop.classList.toggle('active', isOpen);
-    navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    if (navMenu) navMenu.classList.toggle('active', isOpen);
+    if (navBackdrop) navBackdrop.classList.toggle('active', isOpen);
+    if (navToggle) navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
     document.body.style.overflow = isOpen ? 'hidden' : '';
 }
 
@@ -24,38 +34,44 @@ window.addEventListener('scroll', () => {
     }
 
     // 回到顶部按钮
-    if (window.scrollY > 500) {
-        backToTop.classList.add('show');
-    } else {
-        backToTop.classList.remove('show');
+    if (backToTop) {
+        if (window.scrollY > 500) {
+            backToTop.classList.add('show');
+        } else {
+            backToTop.classList.remove('show');
+        }
     }
 
     // 阅读进度条
     const scrollTop = window.scrollY;
     const docHeight = document.documentElement.scrollHeight - window.innerHeight;
     const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-    progressBar.style.width = progress + '%';
+    if (progressBar) progressBar.style.width = progress + '%';
 });
 
 // 移动端菜单切换
-navToggle.addEventListener('click', () => {
-    setNavState(!navMenu.classList.contains('active'));
-});
+if (navToggle && navMenu) {
+    navToggle.addEventListener('click', () => {
+        setNavState(!navMenu.classList.contains('active'));
+    });
+}
 
-navClose.addEventListener('click', () => setNavState(false));
-navBackdrop.addEventListener('click', () => setNavState(false));
+if (navClose) navClose.addEventListener('click', () => setNavState(false));
+if (navBackdrop) navBackdrop.addEventListener('click', () => setNavState(false));
 
 // 点击导航链接后关闭菜单
-navMenu.querySelectorAll('a').forEach(link => {
+navMenu?.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
         setNavState(false);
     });
 });
 
 // 回到顶部
-backToTop.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-});
+if (backToTop) {
+    backToTop.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+}
 
 // 导航高亮当前区域
 const sections = document.querySelectorAll('.section, .hero');
@@ -126,21 +142,23 @@ const savedTheme = localStorage.getItem('theme');
 const systemPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
 const initialTheme = savedTheme || (systemPrefersDark ? 'dark' : 'light');
 document.documentElement.setAttribute('data-theme', initialTheme);
-themeToggle.textContent = initialTheme === 'dark' ? '☀️' : '🌙';
+if (themeToggle) themeToggle.textContent = initialTheme === 'dark' ? '☀️' : '🌙';
 
 document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+    if (e.key === 'Escape' && navMenu?.classList.contains('active')) {
         setNavState(false);
     }
 });
 
-themeToggle.addEventListener('click', () => {
-    const current = document.documentElement.getAttribute('data-theme');
-    const next = current === 'dark' ? 'light' : 'dark';
-    document.documentElement.setAttribute('data-theme', next);
-    localStorage.setItem('theme', next);
-    themeToggle.textContent = next === 'dark' ? '☀️' : '🌙';
-});
+if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+        const current = document.documentElement.getAttribute('data-theme');
+        const next = current === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        localStorage.setItem('theme', next);
+        themeToggle.textContent = next === 'dark' ? '☀️' : '🌙';
+    });
+}
 
 // 监听系统主题变化（用户未手动设置过时）
 if (window.matchMedia) {
@@ -148,7 +166,7 @@ if (window.matchMedia) {
         if (!localStorage.getItem('theme')) {
             const newTheme = e.matches ? 'dark' : 'light';
             document.documentElement.setAttribute('data-theme', newTheme);
-            themeToggle.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+            if (themeToggle) themeToggle.textContent = newTheme === 'dark' ? '☀️' : '🌙';
         }
     });
 }
@@ -216,21 +234,24 @@ window.addEventListener('load', () => {
 });
 
 function openSearch() {
+    if (!searchOverlay || !searchInput || !searchResults) return;
     searchOverlay.classList.add('active');
     searchInput.value = '';
-    searchResults.innerHTML = '<p class="search-hint">输入关键词搜索全站内容，如 "做空"、"ETF"、"黄金"...</p>';
+    searchResults.innerHTML = `<p class="search-hint">${searchHintText}</p>`;
     setTimeout(() => searchInput.focus(), 100);
 }
 
 function closeSearch() {
-    searchOverlay.classList.remove('active');
+    if (searchOverlay) searchOverlay.classList.remove('active');
 }
 
-searchToggle.addEventListener('click', openSearch);
-searchClose.addEventListener('click', closeSearch);
-searchOverlay.addEventListener('click', (e) => {
-    if (e.target === searchOverlay) closeSearch();
-});
+if (searchToggle) searchToggle.addEventListener('click', openSearch);
+if (searchClose) searchClose.addEventListener('click', closeSearch);
+if (searchOverlay) {
+    searchOverlay.addEventListener('click', (e) => {
+        if (e.target === searchOverlay) closeSearch();
+    });
+}
 
 // Ctrl/Cmd + K 快捷键
 document.addEventListener('keydown', (e) => {
@@ -241,11 +262,11 @@ document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') closeSearch();
 });
 
-searchInput.addEventListener('input', () => {
+if (searchInput) searchInput.addEventListener('input', () => {
     const query = searchInput.value.trim();
     const normalizedQuery = normalizeSearchText(query);
     if (!query) {
-        searchResults.innerHTML = '<p class="search-hint">输入关键词搜索全站内容...</p>';
+        searchResults.innerHTML = `<p class="search-hint">${searchEmptyText}</p>`;
         return;
     }
     const results = searchIndex.filter(item =>
@@ -253,7 +274,7 @@ searchInput.addEventListener('input', () => {
         item.normalizedText.includes(normalizedQuery)
     );
     if (results.length === 0) {
-        searchResults.innerHTML = '<p class="search-no-result">没有找到相关内容，试试其他关键词</p>';
+        searchResults.innerHTML = `<p class="search-no-result">${searchNoResultText}</p>`;
         return;
     }
     searchResults.innerHTML = results.slice(0, 12).map(item => `
@@ -315,7 +336,10 @@ const fmt = (n) => {
     return n.toLocaleString('zh-CN', { maximumFractionDigits: 2, minimumFractionDigits: 2 });
 };
 
-const getNum = (id) => parseFloat(document.getElementById(id).value) || 0;
+const getNum = (id) => {
+    const el = document.getElementById(id);
+    return el ? parseFloat(el.value) || 0 : 0;
+};
 const setText = (id, text) => { const el = document.getElementById(id); if (el) el.textContent = text; };
 
 // 复利计算器
@@ -379,8 +403,8 @@ function calcProfitLoss() {
 function calcFx() {
     const amount = getNum('fx-amount');
     const rate = getNum('fx-rate');
-    const from = document.getElementById('fx-from').value;
-    const to = document.getElementById('fx-to').value;
+    const from = document.getElementById('fx-from')?.value || 'CNY';
+    const to = document.getElementById('fx-to')?.value || 'USD';
     const result = amount * rate;
     setText('fx-output', fmt(result) + ' ' + to + '（' + fmt(amount) + ' ' + from + '）');
 }

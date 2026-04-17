@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finance Learning Hub</title>
+    <meta name="description" content="A practical finance learning site covering stocks, ETFs, global markets, forex, crypto, commodities, and risk management.">
+    <meta name="keywords" content="finance basics, stocks, ETFs, global markets, forex, crypto, commodities, risk management">
+    <meta property="og:title" content="Finance Learning Hub">
+    <meta property="og:description" content="Learn the basics of investing, markets, and risk management in plain English.">
+    <meta property="og:type" content="website">
+    <meta name="theme-color" content="#0071e3">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📈</text></svg>">
+</head>
+<body>
+    <div class="progress-bar" id="progressBar"></div>
+
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="en.html" class="nav-logo">📈 Finance Learning Hub</a>
+            <ul class="nav-quick">
+                <li><a href="#chapters">Chapters</a></li>
+                <li><a href="#basics">Basics</a></li>
+                <li><a href="#markets">Markets</a></li>
+                <li><a href="#calculators">Tools</a></li>
+                <li><a href="#glossary">Glossary</a></li>
+            </ul>
+            <div class="nav-right">
+                <div class="lang-switch" aria-label="Language switch">
+                    <a href="index.html" class="lang-link">中文</a>
+                    <a href="en.html" class="lang-link active" aria-current="page">EN</a>
+                </div>
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme" title="Toggle light/dark mode">🌙</button>
+                <button class="search-toggle" id="searchToggle" aria-label="Search (Cmd+K)" title="Search the site (Cmd+K)">🔍</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="search-overlay" id="searchOverlay">
+        <div class="search-modal">
+            <div class="search-header">
+                <input type="text" class="search-input" id="searchInput" placeholder="Search terms, concepts, or sections..." autocomplete="off">
+                <button class="search-close" id="searchClose">✕</button>
+            </div>
+            <div class="search-results" id="searchResults">
+                <p class="search-hint">Search the site for terms, concepts, platforms, and topics...</p>
+            </div>
+        </div>
+    </div>
+
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <h1>Learn Finance from Zero</h1>
+            <p class="hero-subtitle">A practical guide to investing and markets</p>
+            <p class="hero-desc">Covers US stocks, Hong Kong stocks, A-shares, Australian stocks, forex, crypto, commodities, bonds, ETFs, shorting, and cross-border investing.</p>
+            <a href="#basics" class="cta-btn">Start Learning →</a>
+        </div>
+    </section>
+
+    <section class="chapters-section" id="chapters">
+        <div class="container">
+            <div class="chapters-head">
+                <h2 class="chapters-title">All Chapters</h2>
+                <p class="chapters-hint">Start with the first two chapters, browse the rest by topic, or press <kbd>⌘</kbd><kbd>K</kbd> to search.</p>
+            </div>
+
+            <div class="chapters-featured">
+                <a class="chapter-feature primary" href="#prep">
+                    <span class="chapter-feature-kicker">Start Here</span>
+                    <strong>Before You Invest</strong>
+                    <span>Decide whether you should invest, how long your money can stay invested, and how much risk you can carry.</span>
+                </a>
+                <a class="chapter-feature" href="#basics">
+                    <span class="chapter-feature-kicker">Core Basics</span>
+                    <strong>Stock Market Basics</strong>
+                    <span>Understand stocks, valuation, candlesticks, and trading volume before you buy anything.</span>
+                </a>
+            </div>
+
+            <div class="chapter-groups">
+                <section class="chapter-group">
+                    <h3>Markets & Asset Classes</h3>
+                    <div class="chapter-link-list">
+                        <a href="#markets">Global Markets</a>
+                        <a href="#trading-types">Trading Types</a>
+                        <a href="#platforms">Platforms</a>
+                        <a href="#currencies">Forex</a>
+                        <a href="#commodities">Commodities</a>
+                        <a href="#crypto">Crypto</a>
+                        <a href="#bonds-funds">Bonds & Funds</a>
+                    </div>
+                </section>
+
+                <section class="chapter-group">
+                    <h3>Methods & Tools</h3>
+                    <div class="chapter-link-list">
+                        <a href="#strategies">Strategies</a>
+                        <a href="#calculators">Calculators</a>
+                        <a href="#info-sources">Information Sources</a>
+                    </div>
+                </section>
+
+                <section class="chapter-group">
+                    <h3>Risk & Reference</h3>
+                    <div class="chapter-link-list">
+                        <a href="#risk">Risk Management</a>
+                        <a href="#scams">Scam Prevention</a>
+                        <a href="#faq">FAQ</a>
+                        <a href="#glossary">Glossary</a>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-alt" id="prep">
+        <div class="container">
+            <h2 class="section-title">🧭 Before You Invest</h2>
+            <p class="section-intro">Before learning how to buy, decide whether you should buy, how much to invest, and what actually fits your situation.</p>
+
+            <div class="card-grid cols-2">
+                <div class="card">
+                    <h3>Do These 4 Things First</h3>
+                    <div class="step-list">
+                        <div class="step">
+                            <span class="step-num">1</span>
+                            <div>
+                                <h4>Build an emergency fund</h4>
+                                <p>Keep 3-6 months of living expenses in cash before investing. Without a safety buffer, a market drop can force you to sell at the worst time.</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <span class="step-num">2</span>
+                            <div>
+                                <h4>Pay off high-interest debt</h4>
+                                <p>Credit card installments, consumer loans, and online loans often cost more than what most beginners can reasonably earn from investing.</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <span class="step-num">3</span>
+                            <div>
+                                <h4>Get basic protection in place</h4>
+                                <p>Medical, accident, and critical illness coverage matter. A single emergency can wipe out your portfolio if you are not protected.</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <span class="step-num">4</span>
+                            <div>
+                                <h4>Set your time horizon</h4>
+                                <p>Money you need within 1 year should not be in high-volatility assets. Money you can leave for 5-10 years is much better suited for equities.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>Asset Allocation Templates</h3>
+                    <table class="info-table">
+                        <thead>
+                            <tr><th>Profile</th><th>Stocks</th><th>Bonds / Fixed Income</th><th>Cash</th><th>Gold / Other</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><strong>Conservative</strong></td><td>20-40%</td><td>40-60%</td><td>10-20%</td><td>5-10%</td></tr>
+                            <tr><td><strong>Balanced</strong></td><td>50-70%</td><td>20-35%</td><td>5-10%</td><td>5-10%</td></tr>
+                            <tr><td><strong>Aggressive</strong></td><td>75-90%</td><td>0-15%</td><td>5-10%</td><td>0-10%</td></tr>
+                        </tbody>
+                    </table>
+                    <div class="tip-box">
+                        <strong>Key principle:</strong> decide your asset allocation first, then decide which stock or fund to buy. Long-term results usually come more from allocation than from short-term timing.
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>ETF Selection Checklist</h3>
+                    <ul>
+                        <li><strong>Expense ratio:</strong> lower costs matter when you hold for years.</li>
+                        <li><strong>Tracking error:</strong> check whether the ETF actually follows its benchmark closely.</li>
+                        <li><strong>Size and liquidity:</strong> larger, more liquid ETFs often have tighter spreads.</li>
+                        <li><strong>Holdings structure:</strong> look at top holdings, country exposure, and industry concentration.</li>
+                        <li><strong>Distribution method:</strong> income-distributing vs accumulating matters for your goal.</li>
+                        <li><strong>Index itself:</strong> know whether it tracks the S&P 500, Nasdaq 100, CSI 300, or a sector theme.</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3>Two Numbers You Should Not Ignore</h3>
+                    <h4>1. Total trading cost</h4>
+                    <ul>
+                        <li>Broker commission and platform fees</li>
+                        <li>Bid-ask spread</li>
+                        <li>FX conversion costs</li>
+                        <li>Stamp duty and exchange levies</li>
+                        <li>Margin interest and stock borrow fees</li>
+                    </ul>
+                    <h4 style="margin-top:1rem;">2. Maximum drawdown</h4>
+                    <p>Return is not the only metric. If an asset falls 50%, it needs to rise 100% just to recover. Ask yourself: <strong>how much drawdown can I tolerate without panic-selling?</strong></p>
+                    <div class="example-box">
+                        <strong>Example:</strong> if ¥100,000 falls to ¥50,000, you lost 50%. To return from ¥50,000 to ¥100,000, you need a 100% gain.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="basics">
+        <div class="container">
+            <h2 class="section-title">📚 Chapter 1: Stock Market Basics</h2>
+            <p class="section-intro">Before you put real money at risk, understand these core ideas first.</p>
+
+            <div class="card-grid">
+                <div class="card">
+                    <h3>What is a stock?</h3>
+                    <p>A stock is a piece of ownership in a company. When you buy shares, you become a shareholder. If the company earns money, you may receive <strong>dividends</strong>; if the business becomes more valuable, your shares may appreciate.</p>
+                    <div class="example-box">
+                        <strong>Example:</strong> Apple (AAPL) has more than 15 billion shares outstanding. If you own 100 shares, you own a tiny slice of the company.
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>How is the stock price determined?</h3>
+                    <p>Price is driven by <strong>supply and demand</strong>.</p>
+                    <ul>
+                        <li>More buyers than sellers → price rises</li>
+                        <li>More sellers than buyers → price falls</li>
+                    </ul>
+                    <p>Company earnings, industry trends, macro data, sentiment, and policy changes all affect that demand.</p>
+                </div>
+
+                <div class="card">
+                    <h3>Bull vs Bear Market</h3>
+                    <div class="comparison">
+                        <div class="comp-item bull">
+                            <h4>🐂 Bull Market</h4>
+                            <p>A sustained rising market with strong confidence. A common rule of thumb is a gain of 20% or more.</p>
+                        </div>
+                        <div class="comp-item bear">
+                            <h4>🐻 Bear Market</h4>
+                            <p>A sustained falling market with weak sentiment. A common rule of thumb is a fall of 20% or more from a recent high.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>Core Terms Cheat Sheet</h3>
+                    <table class="info-table">
+                        <thead>
+                            <tr><th>Term</th><th>Meaning</th><th>Example</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><strong>IPO</strong></td><td>Initial Public Offering, when a company first sells shares to the public</td><td>A company lists for the first time</td></tr>
+                            <tr><td><strong>Market Cap</strong></td><td>Share price × total shares outstanding</td><td>Large tech companies can reach trillions in market value</td></tr>
+                            <tr><td><strong>P/E Ratio</strong></td><td>Price divided by earnings per share</td><td>Used to compare valuation levels</td></tr>
+                            <tr><td><strong>EPS</strong></td><td>Earnings Per Share</td><td>Net profit ÷ total shares</td></tr>
+                            <tr><td><strong>Candlestick Chart</strong></td><td>Shows open, high, low, and close for a time period</td><td>Used in chart reading</td></tr>
+                            <tr><td><strong>Volume</strong></td><td>The number of shares traded</td><td>Higher volume often means stronger participation</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="card">
+                    <h3>How people classify stocks</h3>
+                    <div class="tag-group">
+                        <h4>By size</h4>
+                        <span class="tag">Large Cap</span>
+                        <span class="tag">Mid Cap</span>
+                        <span class="tag">Small Cap</span>
+                    </div>
+                    <div class="tag-group">
+                        <h4>By industry</h4>
+                        <span class="tag">Technology</span>
+                        <span class="tag">Financials</span>
+                        <span class="tag">Consumer</span>
+                        <span class="tag">Healthcare</span>
+                        <span class="tag">Energy</span>
+                    </div>
+                    <div class="tag-group">
+                        <h4>By style</h4>
+                        <span class="tag">Growth</span>
+                        <span class="tag">Value</span>
+                        <span class="tag">Dividend</span>
+                        <span class="tag">Defensive</span>
+                        <span class="tag">Cyclical</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>Read this before your first trade</h3>
+                    <ul>
+                        <li>Buying a stock is not the same as buying a business you fully understand.</li>
+                        <li>A good company can still be a bad buy if the price is too high.</li>
+                        <li>If you cannot explain why you own something, you probably should not own it.</li>
+                        <li>Do not confuse recent price movement with long-term value.</li>
+                    </ul>
+                    <div class="warning-box">
+                        <strong>Reminder:</strong> this page is educational, not personalized financial advice.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-alt" id="markets">
+        <div class="container">
+            <h2 class="section-title">🌐 Chapter 2: Global Markets</h2>
+            <p class="section-intro">English version in progress.</p>
+            <div class="card full-width">
+                <h3>Coming next</h3>
+                <p>This section will cover US stocks, Hong Kong stocks, A-shares, Australian stocks, trading rules, settlement, and market structure.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="trading-types">
+        <div class="container">
+            <h2 class="section-title">💱 Chapter 3: Trading Types</h2>
+            <p class="section-intro">English version in progress.</p>
+            <div class="card full-width"><h3>Planned content</h3><p>Long, short, margin, CFDs, options, and order types.</p></div>
+        </div>
+    </section>
+
+    <section class="section section-alt" id="platforms">
+        <div class="container">
+            <h2 class="section-title">🏦 Chapter 4: Trading Platforms</h2>
+            <p class="section-intro">English version in progress.</p>
+            <div class="card full-width"><h3>Planned content</h3><p>Broker selection, fees, market access, compliance, and beginner-friendly choices.</p></div>
+        </div>
+    </section>
+
+    <section class="section" id="currencies">
+        <div class="container">
+            <h2 class="section-title">💵 Chapter 5: Forex</h2>
+            <p class="section-intro">English version in progress.</p>
+            <div class="card full-width"><h3>Planned content</h3><p>Currency pairs, exchange rates, carry, central banks, and cross-border funding basics.</p></div>
+        </div>
+    </section>
+
+    <section class="section section-alt" id="commodities">
+        <div class="container">
+            <h2 class="section-title">🛢️ Chapter 6: Commodities</h2>
+            <p class="section-intro">English version in progress.</p>
+            <div class="card full-width"><h3>Planned content</h3><p>Gold, oil, industrial metals, soft commodities, and how retail investors get exposure.</p></div>
+        </div>
+    </section>
+
+    <section class="section" id="crypto">
+        <div class="container">
+            <h2 class="section-title">🪙 Chapter 7: Crypto</h2>
+            <p class="section-intro">English version in progress.</p>
+            <div class="warning-box"><strong>Note:</strong> crypto regulation differs sharply by jurisdiction. Always follow local law and treat this topic as high risk.</div>
+            <div class="card full-width"><h3>Planned content</h3><p>Bitcoin, Ethereum, custody, exchanges, stablecoins, and legal/regulatory risk.</p></div>
+        </div>
+    </section>
+
+    <section class="section section-alt" id="bonds-funds">
+        <div class="container">
+            <h2 class="section-title">📊 Chapter 8: Bonds & Funds</h2>
+            <p class="section-intro">English version in progress.</p>
+            <div class="card full-width"><h3>Planned content</h3><p>Government bonds, corporate bonds, bond duration, mutual funds, ETFs, and distribution types.</p></div>
+        </div>
+    </section>
+
+    <section class="section" id="strategies">
+        <div class="container">
+            <h2 class="section-title">🎯 Chapter 9: Strategies</h2>
+            <p class="section-intro">English version in progress.</p>
+            <div class="card full-width"><h3>Planned content</h3><p>Long-term investing, trend following, mean reversion, position sizing, and chart reading basics.</p></div>
+        </div>
+    </section>
+
+    <section class="section section-alt" id="calculators">
+        <div class="container">
+            <h2 class="section-title">🧮 Chapter 10: Calculators</h2>
+            <p class="section-intro">English version in progress.</p>
+            <div class="card full-width"><h3>Planned content</h3><p>Compound growth, position sizing, profit & loss, and FX conversion calculators.</p></div>
+        </div>
+    </section>
+
+    <section class="section" id="info-sources">
+        <div class="container">
+            <h2 class="section-title">📡 Chapter 11: Information Sources</h2>
+            <p class="section-intro">English version in progress.</p>
+            <div class="card full-width"><h3>Planned content</h3><p>Company filings, earnings calls, financial media, macro calendars, and how to filter noise.</p></div>
+        </div>
+    </section>
+
+    <section class="section section-alt" id="risk">
+        <div class="container">
+            <h2 class="section-title">⚠️ Chapter 12: Risk Management</h2>
+            <p class="section-intro">English version in progress.</p>
+            <div class="card full-width"><h3>Planned content</h3><p>Position sizing, stop-loss logic, diversification, leverage risk, and tax/regulatory awareness.</p></div>
+        </div>
+    </section>
+
+    <section class="section" id="scams">
+        <div class="container">
+            <h2 class="section-title">🛡️ Chapter 13: Scam Prevention</h2>
+            <p class="section-intro">English version in progress.</p>
+            <div class="card full-width"><h3>Planned content</h3><p>Fake analysts, signal groups, guaranteed-return traps, and how to verify platforms and counterparties.</p></div>
+        </div>
+    </section>
+
+    <section class="section section-alt" id="faq">
+        <div class="container">
+            <h2 class="section-title">❓ Chapter 14: FAQ</h2>
+            <p class="section-intro">English version in progress.</p>
+            <div class="card full-width"><h3>Planned content</h3><p>Common beginner questions about stock picking, account opening, taxes, and risk.</p></div>
+        </div>
+    </section>
+
+    <section class="section" id="glossary">
+        <div class="container">
+            <h2 class="section-title">📖 Chapter 15: Glossary</h2>
+            <p class="section-intro">English version in progress.</p>
+            <div class="card full-width"><h3>Planned content</h3><p>A bilingual glossary of trading, valuation, market structure, and portfolio terms.</p></div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>📈 Finance Learning Hub</h4>
+                    <p>A practical finance learning site</p>
+                    <p>From zero to confident investing</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Access</h4>
+                    <ul>
+                        <li><a href="#prep">Before You Invest</a></li>
+                        <li><a href="#basics">Stock Basics</a></li>
+                        <li><a href="#markets">Global Markets</a></li>
+                        <li><a href="#strategies">Strategies</a></li>
+                        <li><a href="#risk">Risk Management</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Notice</h4>
+                    <p>This English page is a staged rollout. Core onboarding content is available now, and the rest of the site is being translated section by section.</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p><strong>Disclaimer:</strong> This site is for educational purposes only and does not constitute investment advice. Investing involves risk.</p>
+                <p>© 2024-2026 Finance Learning Hub | Hosted on GitHub Pages</p>
+            </div>
+        </div>
+    </footer>
+
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+
+    <script src="script.js"></script>
+</body>
+</html>
